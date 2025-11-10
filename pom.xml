@@ -194,6 +194,12 @@
       <artifactId>poi-scratchpad</artifactId>
       <version>5.2.4</version>
     </dependency>
+    <!-- HikariCP for database connection pooling -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>5.0.1</version>
+    </dependency>
     <!-- JUnit dependency for API tests -->
     <dependency>
       <groupId>junit</groupId>
