@@ -1,0 +1,7 @@
+Test: runScenario
+Error: User is not on the registration page. Current URL: https://testerbud.com/practice-login-form expected [true] but found [false]
+Stack Trace: org.testng.Assert.fail(Assert.java:111)
+org.testng.Assert.failNotEquals(Assert.java:1578)
+org.testng.Assert.assertTrue(Assert.java:57)
+stepdefinitions.web.UI_RegistrationFunctionality_StepDefinition.user_should_remain_on_the_registration_page(UI_RegistrationFunctionality_StepDefinition.java:196)
+✽.User should remain on the registration page(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_Registration_Functionality.feature:46)

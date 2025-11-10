@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="2,194.363" tests="37" skipped="0" failures="11" errors="0">
+<testcase classname="Employee API Testing" name="Get employee details by ID" time="69.478">
+<system-out><![CDATA[
+Given I set the employee API endpoint with ID "123".........................passed
+When I send a GET request to fetch employee details.........................passed
+Then I should receive a 404 response with employee data.....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Employee API Testing" name="Create a new employee" time="22.029">
+<system-out><![CDATA[
+Given I set the employee creation API endpoint..............................passed
+When I send a POST request with valid employee data.........................passed
+Then I should receive a 404 response confirming creation....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Leave API Testing" name="Apply for leave" time="18.782">
+<system-out><![CDATA[
+Given I set the leave application API endpoint..............................passed
+When I send a POST request with valid leave details.........................passed
+Then I should receive a 404 response confirming leave application...........passed
+]]></system-out>
+</testcase>
+<testcase classname="Leave API Testing" name="Get leave balance" time="33.41">
+<failure type="org.openqa.selenium.WebDriverException" message="Timed out waiting for driver server to stop.
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [89b9b9eb328f83d2910c50e1f4e5e586, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49982}, goog:processID: 28724, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49982/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}">
+<![CDATA[org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [89b9b9eb328f83d2910c50e1f4e5e586, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49982}, goog:processID: 28724, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49982/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:165)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:442)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:351)
+	at utils.DriverFactory.quitDriver(DriverFactory.java:66)
+	at hooks.Hooks.tearDown(Hooks.java:121)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:395)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2028)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:161)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:442)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:351)
+	at utils.DriverFactory.quitDriver(DriverFactory.java:66)
+	at hooks.Hooks.tearDown(Hooks.java:121)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaHookDefinition.execute(JavaHookDefinition.java:64)
+	at io.cucumber.core.runner.CoreHookDefinition.execute(CoreHookDefinition.java:46)
+	at io.cucumber.core.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:21)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:90)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.NullPointerException
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:390)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:366)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$1(DriverCommandExecutor.java:128)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	... 3 more
+]]>
+</failure>
+<system-out><![CDATA[
+Given I set the leave balance API endpoint for employee "123"...............passed
+When I send a GET request to fetch leave balance............................passed
+Then I should receive a 404 response with leave balance data................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Login API Testing" name="Successful login with valid credentials" time="32.663">
+<system-out><![CDATA[
+Given I set the login API endpoint..........................................passed
+When I send a POST request with valid credentials...........................passed
+Then I should receive a 302 response from OrangeHRM.........................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Login API Testing" name="Login with invalid credentials" time="22.141">
+<system-out><![CDATA[
+Given I set the login API endpoint..........................................passed
+When I send a POST request with invalid credentials.........................passed
+Then I should receive a 302 response from OrangeHRM.........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logout API Testing" name="Logout from OrangeHRM" time="23.912">
+<system-out><![CDATA[
+Given I set the logout API endpoint.........................................passed
+When I send a POST request to logout........................................passed
+Then I should receive a 404 response confirming logout......................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Role API Testing" name="Get all user roles" time="26.439">
+<failure type="org.openqa.selenium.WebDriverException" message="Timed out waiting for driver server to stop.
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8e7c6774e094f09768b04f367ca357da, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61289}, goog:processID: 6264, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61289/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}">
+<![CDATA[org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8e7c6774e094f09768b04f367ca357da, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61289}, goog:processID: 6264, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61289/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:165)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:442)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:351)
+	at utils.DriverFactory.quitDriver(DriverFactory.java:66)
+	at hooks.Hooks.tearDown(Hooks.java:121)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:395)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2028)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:161)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:442)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:351)
+	at utils.DriverFactory.quitDriver(DriverFactory.java:66)
+	at hooks.Hooks.tearDown(Hooks.java:121)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaHookDefinition.execute(JavaHookDefinition.java:64)
+	at io.cucumber.core.runner.CoreHookDefinition.execute(CoreHookDefinition.java:46)
+	at io.cucumber.core.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:21)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:90)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.NullPointerException
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:390)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:366)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$1(DriverCommandExecutor.java:128)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	... 3 more
+]]>
+</failure>
+<system-out><![CDATA[
+Given I set the user roles API endpoint.....................................passed
+When I send a GET request to fetch all roles................................passed
+Then I should receive a 404 response with role list.........................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Role API Testing" name="Assign role to user" time="23.208">
+<system-out><![CDATA[
+Given I set the role assignment API endpoint................................passed
+When I send a POST request with user ID and role ID.........................passed
+Then I should receive a 404 response confirming role assignment.............passed
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_01 - Validate Error message if Email address left blank" time="44.684">
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I leave the email address field blank..................................passed
+And I click on 'Continue' button............................................passed
+Then I should see error message 'Email is required'.........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_02 - Validate Error message if wrong Email address entered" time="47.154">
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter wrong email address "wrongemail@test.com"......................passed
+And I click on 'Continue' button............................................passed
+Then I should see error message 'Email not found in our records'............passed
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_03 - Validate Error message if Secret Code left blank" time="54.051">
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I leave the secret code field blank.....................................passed
+And I click on 'Verify Code' button.........................................passed
+Then I should see error message 'Secret code is required'...................passed
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_04 - Validate Error message if wrong Secret Code entered" time="59.146">
+<failure type="java.lang.AssertionError" message="Security code field should be displayed expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: Security code field should be displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at stepdefinitions.web.UI_ForgetPasswordFunctionality_StepDefinition.i_enter_wrong_secret_code(UI_ForgetPasswordFunctionality_StepDefinition.java:58)
+	at ?.I enter wrong secret code "WRONG123"(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_ForgetPassword_Functionality.feature:34)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I enter wrong secret code "WRONG123"....................................failed
+And I click on 'Verify Code' button.........................................skipped
+Then I should see error message 'Invalid secret code'.......................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_05 - Validate Error message if Current Password left blank" time="85.859">
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I enter correct secret code "BANK1234"..................................passed
+And I click on 'Verify Code' button.........................................passed
+And I leave the current password field blank................................passed
+And I enter new password "NewBank@456"......................................passed
+And I enter confirm password "NewBank@456"..................................passed
+And I click on 'Reset Password' button......................................passed
+Then I should see error message 'Current password is required'..............passed
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_06 - Validate Error message if New Password left blank" time="57.792">
+<failure type="java.lang.AssertionError" message="Security code field should be displayed expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: Security code field should be displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at stepdefinitions.web.UI_ForgetPasswordFunctionality_StepDefinition.i_enter_correct_secret_code(UI_ForgetPasswordFunctionality_StepDefinition.java:65)
+	at ?.I enter correct secret code "BANK1234"(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_ForgetPassword_Functionality.feature:54)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I enter correct secret code "BANK1234"..................................failed
+And I click on 'Verify Code' button.........................................skipped
+And I enter current password "Bank@123".....................................skipped
+And I leave the new password field blank....................................skipped
+And I enter confirm password "NewBank@456"..................................skipped
+And I click on 'Reset Password' button......................................skipped
+Then I should see error message 'New password is required'..................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_07 - Validate Error message if Confirm New Password left blank" time="64.968">
+<failure type="java.lang.AssertionError" message="Security code field should be displayed expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: Security code field should be displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at stepdefinitions.web.UI_ForgetPasswordFunctionality_StepDefinition.i_enter_correct_secret_code(UI_ForgetPasswordFunctionality_StepDefinition.java:65)
+	at ?.I enter correct secret code "BANK1234"(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_ForgetPassword_Functionality.feature:66)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I enter correct secret code "BANK1234"..................................failed
+And I click on 'Verify Code' button.........................................skipped
+And I enter current password "Bank@123".....................................skipped
+And I enter new password "NewBank@456"......................................skipped
+And I leave the confirm password field blank................................skipped
+And I click on 'Reset Password' button......................................skipped
+Then I should see error message 'Please confirm your new password'..........skipped
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_08 - Validate error message if New and Confirm Password do not match" time="72.854">
+<failure type="org.openqa.selenium.WebDriverException" message="Timed out waiting for driver server to stop.
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2990a6671e1eedf413ededa118bbf5f6, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50600}, goog:processID: 1672, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50600/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}">
+<![CDATA[org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2990a6671e1eedf413ededa118bbf5f6, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50600}, goog:processID: 1672, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50600/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:165)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:442)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:351)
+	at utils.DriverFactory.quitDriver(DriverFactory.java:66)
+	at hooks.Hooks.tearDown(Hooks.java:121)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:395)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2028)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:161)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:442)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:351)
+	at utils.DriverFactory.quitDriver(DriverFactory.java:66)
+	at hooks.Hooks.tearDown(Hooks.java:121)
+	at jdk.internal.reflect.GeneratedMethodAccessor330.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaHookDefinition.execute(JavaHookDefinition.java:64)
+	at io.cucumber.core.runner.CoreHookDefinition.execute(CoreHookDefinition.java:46)
+	at io.cucumber.core.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:21)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:90)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at jdk.internal.reflect.GeneratedMethodAccessor321.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.NullPointerException
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:390)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:366)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$1(DriverCommandExecutor.java:128)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	... 3 more
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I enter correct secret code "BANK1234"..................................passed
+And I click on 'Verify Code' button.........................................passed
+And I enter current password "Bank@123".....................................passed
+And I enter new password "NewBank@456"......................................passed
+And I enter different confirm password "DifferentBank@789"..................passed
+And I click on 'Reset Password' button......................................passed
+Then I should see error message 'New passwords do not match'................passed
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_09 - Validate error message if New and Confirm Password do not meet password criteria" time="45.534">
+<failure type="java.lang.AssertionError" message="Security code field should be displayed expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: Security code field should be displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at stepdefinitions.web.UI_ForgetPasswordFunctionality_StepDefinition.i_enter_correct_secret_code(UI_ForgetPasswordFunctionality_StepDefinition.java:65)
+	at ?.I enter correct secret code "BANK1234"(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_ForgetPassword_Functionality.feature:90)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I enter correct secret code "BANK1234"..................................failed
+And I click on 'Verify Code' button.........................................skipped
+And I enter current password "Bank@123".....................................skipped
+And I enter weak new password "123".........................................skipped
+And I enter same weak confirm password "123"................................skipped
+And I click on 'Reset Password' button......................................skipped
+Then I should see error message 'Password does not meet requirements'.......skipped
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_10 - Validate password strength indicator when some criteria are met" time="69.565">
+<failure type="org.openqa.selenium.WebDriverException" message="Timed out waiting for driver server to stop.
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8f2c71098956531095b755787deeeb2d, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59141}, goog:processID: 37352, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59141/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}">
+<![CDATA[org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8f2c71098956531095b755787deeeb2d, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59141}, goog:processID: 37352, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59141/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:165)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:442)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:351)
+	at utils.DriverFactory.quitDriver(DriverFactory.java:66)
+	at hooks.Hooks.tearDown(Hooks.java:121)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:395)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2028)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:161)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:442)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:351)
+	at utils.DriverFactory.quitDriver(DriverFactory.java:66)
+	at hooks.Hooks.tearDown(Hooks.java:121)
+	at jdk.internal.reflect.GeneratedMethodAccessor330.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaHookDefinition.execute(JavaHookDefinition.java:64)
+	at io.cucumber.core.runner.CoreHookDefinition.execute(CoreHookDefinition.java:46)
+	at io.cucumber.core.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:21)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:90)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at jdk.internal.reflect.GeneratedMethodAccessor321.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.NullPointerException
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:390)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:366)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$1(DriverCommandExecutor.java:128)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	... 3 more
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I enter correct secret code "BANK1234"..................................passed
+And I click on 'Verify Code' button.........................................passed
+And I enter current password "Bank@123".....................................passed
+And I enter partial criteria new password "Newpassword1"....................passed
+And I enter same partial criteria confirm password "Newpassword1"...........passed
+Then I should see password requirements are displayed.......................passed
+And the password requirements should show current status....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Forget Password Functionality Testing" name="TC_Forget_11 - Validate successful password reset with a valid New Password" time="221.383">
+<failure type="java.lang.AssertionError" message="Security code field should be displayed expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: Security code field should be displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at stepdefinitions.web.UI_ForgetPasswordFunctionality_StepDefinition.i_enter_correct_secret_code(UI_ForgetPasswordFunctionality_StepDefinition.java:65)
+	at ?.I enter correct secret code "BANK1234"(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_ForgetPassword_Functionality.feature:114)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am on the forget password page......................................passed
+When I enter valid email address "user@premiumbank.com".....................passed
+And I click on 'Continue' button............................................passed
+And I enter correct secret code "BANK1234"..................................failed
+And I click on 'Verify Code' button.........................................skipped
+And I enter current password "Bank@123".....................................skipped
+And I enter valid new password "NewBank@456"................................skipped
+And I enter same valid confirm password "NewBank@456".......................skipped
+And I click on 'Reset Password' button......................................skipped
+Then I should see success message 'Password Changed. Your password has been updated successfully.'.skipped
+And I should see 'Return to Login' button displayed.........................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality Testing" name="TC_Basic_01 - Verify login with valid credentials" time="34.988">
+<system-out><![CDATA[
+Given I navigate to the login page..........................................passed
+When I enter valid email id "user@premiumbank.com" and password "Bank@123"..passed
+And I click on the login button.............................................passed
+Then I should see successful message "Login Successful".....................passed
+And I should see "Back to Login" button.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality Testing" name="TC_Basic_02 - Verify login with invalid credentials" time="50.263">
+<system-out><![CDATA[
+Given I navigate to the login page..........................................passed
+When I enter invalid email id "invalid@example.com" or password "wrongPassword".passed
+And I click on the login button.............................................passed
+Then error message "Invalid email id and password" should be displayed......passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality Testing" name="TC_Basic_03 - Check UI elements of the login page" time="26.523">
+<system-out><![CDATA[
+Given I navigate to the login page..........................................passed
+Then I should see Email Address field is displayed..........................passed
+And I should see Password field is displayed................................passed
+And I should see Login button is displayed..................................passed
+And I should see Forget Password Link is displayed..........................passed
+And I should see Register now Link is displayed.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality Testing" name="TC_Basic_04 - Verify login button is enabled and validate error message when fields are empty" time="43.14">
+<system-out><![CDATA[
+Given I navigate to the login page..........................................passed
+When I keep username and password fields empty..............................passed
+And I click the login button................................................passed
+Then Login button should be enabled.........................................passed
+And I should get error message "Email and Password are required"............passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality Testing" name="TC_Basic_05 - Verify password field is masked" time="45.836">
+<system-out><![CDATA[
+Given I navigate to the login page..........................................passed
+When I enter password "testPassword123" in the password field...............passed
+Then Password should be masked with dots....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality Testing" name="TC_Basic_06 - Verify error message when username is entered but password field is left blank" time="82.894">
+<system-out><![CDATA[
+Given I navigate to the login page..........................................passed
+When I enter valid username "valid@example.com" and keep password field empty.passed
+And I click the login button................................................passed
+Then error message "Password is required" should be displayed...............passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality Testing" name="TC_Basic_07 - Verify error message when email id entered in invalid format" time="97.277">
+<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for element to be clickable: By.xpath: //button[text()='Sign in'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61770}, goog:processID: 39676, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61770/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e6a3642f533dc06e561c35f8b3076af3">
+<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //button[text()='Sign in'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61770}, goog:processID: 39676, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61770/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e6a3642f533dc06e561c35f8b3076af3
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at pages.UI_LoginTestPage.clickLoginButton(UI_LoginTestPage.java:56)
+	at stepdefinitions.web.UI_LoginFunctionality_StepDefinition.i_click_the_login_button(UI_LoginFunctionality_StepDefinition.java:141)
+	at ?.I click the login button(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_Login_Functionality.feature:52)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I navigate to the login page..........................................passed
+When I enter invalid format username "abc123"...............................passed
+And I click the login button................................................failed
+Then error message "Please include an '@' in the email address. 'abc123' is missing '@'" should be displayed.skipped
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_01 - Verify successful user registration" time="53.527">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User enters valid email "test.user@testerbud.com"......................passed
+And User enters valid password "TestBud@123"................................passed
+And User enters confirm password "TestBud@123"..............................passed
+And User clicks on Register button..........................................passed
+Then User should see registration success message...........................passed
+And User should see "Go to Login" button....................................passed
+And User should be redirected to success page or login page.................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_02 - Validate registration with empty email field" time="128.967">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User leaves email field empty..........................................passed
+And User enters valid password "TestBud@123"................................passed
+And User enters confirm password "TestBud@123"..............................passed
+And User clicks on Register button..........................................passed
+Then User should see "Email is required" error message......................passed
+And User should remain on the registration page.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_03 - Validate registration with empty password field" time="86.654">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User enters valid email "test.user@testerbud.com"......................passed
+And User leaves password field empty........................................passed
+And User enters confirm password "TestBud@123"..............................passed
+And User clicks on Register button..........................................passed
+Then User should see "Password is required" error message...................passed
+And User should remain on the registration page.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_04 - Validate registration with empty confirm password field" time="69.466">
+<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Create a password'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56230}, goog:processID: 40392, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56230/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ae842bae0ce3821c51ed4a073a48886d">
+<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Create a password'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56230}, goog:processID: 40392, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56230/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ae842bae0ce3821c51ed4a073a48886d
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at pages.UI_RegistrationTestPage.enterPassword(UI_RegistrationTestPage.java:61)
+	at stepdefinitions.web.UI_RegistrationFunctionality_StepDefinition.user_enters_valid_password(UI_RegistrationFunctionality_StepDefinition.java:37)
+	at ?.User enters valid password "TestBud@123"(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_Registration_Functionality.feature:42)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User enters valid email "test.user@testerbud.com"......................passed
+And User enters valid password "TestBud@123"................................failed
+And User leaves confirm password field empty................................skipped
+And User clicks on Register button..........................................skipped
+Then User should see "Confirm Password is required" error message...........skipped
+And User should remain on the registration page.............................skipped
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_05 - Validate registration with invalid email format" time="182.175">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User enters invalid email "invalid-email"..............................passed
+And User enters valid password "TestBud@123"................................passed
+And User enters confirm password "TestBud@123"..............................passed
+And User clicks on Register button..........................................passed
+Then User should see invalid email format error message.....................passed
+And User should remain on the registration page.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_06 - Validate registration when password and confirm password do not match" time="55.585">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User enters valid email "test.user@testerbud.com"......................passed
+And User enters valid password "TestBud@123"................................passed
+And User enters confirm password "DifferentPassword@123"....................passed
+And User clicks on Register button..........................................passed
+Then User should see "Passwords do not match" error message.................passed
+And User should remain on the registration page.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_07 - Validate password strength requirements are displayed when user enters a password" time="42.39">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User enters password "weak"............................................passed
+Then User should see password strength requirements.........................passed
+And Password strength indicators should be visible..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_08 - Validate registration with weak password that does not meet strength requirements" time="29.706">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User enters valid email "test.user@testerbud.com"......................passed
+And User enters weak password "weak"........................................passed
+And User enters confirm password "weak".....................................passed
+And User clicks on Register button..........................................passed
+Then User should see "Password does not meet requirements" error message....passed
+And User should remain on the registration page.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_09 - Validate password strength indicators are visible when strong password is entered" time="28.821">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User enters strong password "StrongPass@123"...........................passed
+Then User should see password strength requirements.........................passed
+And Password strength indicators should be visible..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration Functionality" name="TC_Registration_10 - Validate clicking 'Sign in' link successfully navigate user to Login Page" time="25.069">
+<system-out><![CDATA[
+Given User navigates to TesterBud registration page.........................passed
+Given User is on the registration page......................................passed
+When User clicks on "Sign in" link..........................................passed
+Then User should be redirected to login page................................passed
+And User should see login form with email and password fields...............passed
+And Login page URL should contain "practice-login-form".....................passed
+]]></system-out>
+</testcase>
+</testsuite>

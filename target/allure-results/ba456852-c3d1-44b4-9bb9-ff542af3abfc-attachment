@@ -1,0 +1,27 @@
+Test: runScenario
+Error: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@type='submit']"}
+  (Session info: chrome=142.0.7444.60)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ba7d26d35a74680aab1d94edda735d8f, findElement {using=xpath, value=//button[@type='submit']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58185}, goog:processID: 7244, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58185/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ba7d26d35a74680aab1d94edda735d8f
+Stack Trace: jdk.internal.reflect.GeneratedConstructorAccessor46.newInstance(Unknown Source)
+java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:364)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:358)
+pages.UI_LoginPage.clickLogin(UI_LoginPage.java:33)
+stepdefinitions.web.UI_OrangeHRM_LoginPage_StepDefinition.the_user_clicks_the_login_button(UI_OrangeHRM_LoginPage_StepDefinition.java:55)
+✽.the user clicks the login button(file:///C:/Users/schapre/ew-selenium/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_OrangeHRM_AdminPage.feature:8)

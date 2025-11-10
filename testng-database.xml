@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Database Testing Suite" verbose="1" parallel="methods" thread-count="4">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="platform" value="DATABASE"/>
+
+    <!-- Database Basic Operations Test -->
+    <test name="Database Basic Operations" preserve-order="true">
+        <parameter name="testType" value="database-basic"/>
+        <classes>
+            <class name="runners.TestRunner">
+                <methods>
+                    <include name="runCucumberTests"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Database API Integration Test -->
+    <test name="Database API Integration" preserve-order="true">
+        <parameter name="testType" value="database-api-integration"/>
+        <classes>
+            <class name="runners.TestRunner">
+                <methods>
+                    <include name="runCucumberTests"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Performance Database Testing -->
+    <test name="Database Performance Tests" preserve-order="true">
+        <parameter name="testType" value="database-performance"/>
+        <classes>
+            <class name="runners.TestRunner">
+                <methods>
+                    <include name="runCucumberTests"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

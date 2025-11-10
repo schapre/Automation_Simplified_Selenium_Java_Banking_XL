@@ -1,0 +1,74 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Nov 09 23:12:37 IST 2025","Sun Nov 09 23:12:53 IST 2025","15783","","Forget Password Functionality Testing","","TC_Forget_08 - Validate error message if New and Confirm Password do not match","","TC_Forget_08 - Validate error message if New and Confirm Password do not match","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:14:23 IST 2025","Sun Nov 09 23:14:35 IST 2025","11981","","Login Functionality Testing","","TC_Basic_04 - Verify login button is enabled and validate error message when fields are empty","","TC_Basic_04 - Verify login button is enabled and validate error message when fields are empty","  As a user
+  I want to test various login scenarios
+  So that I can ensure the login functionality works correctly"
+"passed","Sun Nov 09 23:09:43 IST 2025","Sun Nov 09 23:10:08 IST 2025","25046","","Employee API Testing","","Get employee details by ID","","Get employee details by ID",""
+"passed","Sun Nov 09 23:10:36 IST 2025","Sun Nov 09 23:10:40 IST 2025","4349","","Logout API Testing","","Logout from OrangeHRM","","Logout from OrangeHRM",""
+"passed","Sun Nov 09 23:15:57 IST 2025","Sun Nov 09 23:16:19 IST 2025","21528","","User Registration Functionality","","TC_Registration_03 - Validate registration with empty password field","","TC_Registration_03 - Validate registration with empty password field",""
+"passed","Sun Nov 09 23:14:35 IST 2025","Sun Nov 09 23:14:45 IST 2025","9483","","Login Functionality Testing","","TC_Basic_05 - Verify password field is masked","","TC_Basic_05 - Verify password field is masked","  As a user
+  I want to test various login scenarios
+  So that I can ensure the login functionality works correctly"
+"passed","Sun Nov 09 23:17:45 IST 2025","Sun Nov 09 23:18:01 IST 2025","16726","","User Registration Functionality","","TC_Registration_10 - Validate clicking 'Sign in' link successfully navigate user to Login Page","","TC_Registration_10 - Validate clicking 'Sign in' link successfully navigate user to Login Page",""
+"passed","Sun Nov 09 23:14:13 IST 2025","Sun Nov 09 23:14:23 IST 2025","10214","","Login Functionality Testing","","TC_Basic_03 - Check UI elements of the login page","","TC_Basic_03 - Check UI elements of the login page","  As a user
+  I want to test various login scenarios
+  So that I can ensure the login functionality works correctly"
+"passed","Sun Nov 09 23:16:19 IST 2025","Sun Nov 09 23:16:36 IST 2025","16824","","User Registration Functionality","","TC_Registration_04 - Validate registration with empty confirm password field","","TC_Registration_04 - Validate registration with empty confirm password field",""
+"passed","Sun Nov 09 23:17:18 IST 2025","Sun Nov 09 23:17:33 IST 2025","15547","","User Registration Functionality","","TC_Registration_08 - Validate registration with weak password that does not meet strength requirements","","TC_Registration_08 - Validate registration with weak password that does not meet strength requirements",""
+"passed","Sun Nov 09 23:11:13 IST 2025","Sun Nov 09 23:11:26 IST 2025","13684","","Forget Password Functionality Testing","","TC_Forget_03 - Validate Error message if Secret Code left blank","","TC_Forget_03 - Validate Error message if Secret Code left blank","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:16:36 IST 2025","Sun Nov 09 23:16:50 IST 2025","14658","","User Registration Functionality","","TC_Registration_05 - Validate registration with invalid email format","","TC_Registration_05 - Validate registration with invalid email format",""
+"passed","Sun Nov 09 23:12:53 IST 2025","Sun Nov 09 23:13:10 IST 2025","17613","","Forget Password Functionality Testing","","TC_Forget_09 - Validate error message if New and Confirm Password do not meet password criteria","","TC_Forget_09 - Validate error message if New and Confirm Password do not meet password criteria","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:10:09 IST 2025","Sun Nov 09 23:10:15 IST 2025","6016","","Employee API Testing","","Create a new employee","","Create a new employee",""
+"passed","Sun Nov 09 23:13:10 IST 2025","Sun Nov 09 23:13:27 IST 2025","16965","","Forget Password Functionality Testing","","TC_Forget_10 - Validate password strength indicator when some criteria are met","","TC_Forget_10 - Validate password strength indicator when some criteria are met","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:13:50 IST 2025","Sun Nov 09 23:14:02 IST 2025","11950","","Login Functionality Testing","","TC_Basic_01 - Verify login with valid credentials","","TC_Basic_01 - Verify login with valid credentials","  As a user
+  I want to test various login scenarios
+  So that I can ensure the login functionality works correctly"
+"passed","Sun Nov 09 23:10:15 IST 2025","Sun Nov 09 23:10:20 IST 2025","4677","","Leave API Testing","","Apply for leave","","Apply for leave",""
+"passed","Sun Nov 09 23:14:02 IST 2025","Sun Nov 09 23:14:13 IST 2025","11159","","Login Functionality Testing","","TC_Basic_02 - Verify login with invalid credentials","","TC_Basic_02 - Verify login with invalid credentials","  As a user
+  I want to test various login scenarios
+  So that I can ensure the login functionality works correctly"
+"passed","Sun Nov 09 23:14:59 IST 2025","Sun Nov 09 23:15:18 IST 2025","19601","","Login Functionality Testing","","TC_Basic_07 - Verify error message when email id entered in invalid format","","TC_Basic_07 - Verify error message when email id entered in invalid format","  As a user
+  I want to test various login scenarios
+  So that I can ensure the login functionality works correctly"
+"passed","Sun Nov 09 23:10:31 IST 2025","Sun Nov 09 23:10:36 IST 2025","4709","","OrangeHRM Login API Testing","","Login with invalid credentials","","Login with invalid credentials",""
+"passed","Sun Nov 09 23:10:45 IST 2025","Sun Nov 09 23:10:50 IST 2025","4695","","User Role API Testing","","Assign role to user","","Assign role to user",""
+"passed","Sun Nov 09 23:15:40 IST 2025","Sun Nov 09 23:15:57 IST 2025","17498","","User Registration Functionality","","TC_Registration_02 - Validate registration with empty email field","","TC_Registration_02 - Validate registration with empty email field",""
+"passed","Sun Nov 09 23:10:20 IST 2025","Sun Nov 09 23:10:25 IST 2025","5509","","Leave API Testing","","Get leave balance","","Get leave balance",""
+"passed","Sun Nov 09 23:10:50 IST 2025","Sun Nov 09 23:11:01 IST 2025","10619","","Forget Password Functionality Testing","","TC_Forget_01 - Validate Error message if Email address left blank","","TC_Forget_01 - Validate Error message if Email address left blank","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:15:18 IST 2025","Sun Nov 09 23:15:40 IST 2025","21515","","User Registration Functionality","","TC_Registration_01 - Verify successful user registration","","TC_Registration_01 - Verify successful user registration",""
+"passed","Sun Nov 09 23:10:25 IST 2025","Sun Nov 09 23:10:31 IST 2025","5854","","OrangeHRM Login API Testing","","Successful login with valid credentials","","Successful login with valid credentials",""
+"passed","Sun Nov 09 23:16:50 IST 2025","Sun Nov 09 23:17:07 IST 2025","16473","","User Registration Functionality","","TC_Registration_06 - Validate registration when password and confirm password do not match","","TC_Registration_06 - Validate registration when password and confirm password do not match",""
+"passed","Sun Nov 09 23:11:01 IST 2025","Sun Nov 09 23:11:13 IST 2025","11874","","Forget Password Functionality Testing","","TC_Forget_02 - Validate Error message if wrong Email address entered","","TC_Forget_02 - Validate Error message if wrong Email address entered","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:11:58 IST 2025","Sun Nov 09 23:12:21 IST 2025","22717","","Forget Password Functionality Testing","","TC_Forget_06 - Validate Error message if New Password left blank","","TC_Forget_06 - Validate Error message if New Password left blank","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:17:33 IST 2025","Sun Nov 09 23:17:45 IST 2025","11177","","User Registration Functionality","","TC_Registration_09 - Validate password strength indicators are visible when strong password is entered","","TC_Registration_09 - Validate password strength indicators are visible when strong password is entered",""
+"passed","Sun Nov 09 23:17:07 IST 2025","Sun Nov 09 23:17:18 IST 2025","10862","","User Registration Functionality","","TC_Registration_07 - Validate password strength requirements are displayed when user enters a password","","TC_Registration_07 - Validate password strength requirements are displayed when user enters a password",""
+"passed","Sun Nov 09 23:11:26 IST 2025","Sun Nov 09 23:11:39 IST 2025","13024","","Forget Password Functionality Testing","","TC_Forget_04 - Validate Error message if wrong Secret Code entered","","TC_Forget_04 - Validate Error message if wrong Secret Code entered","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:13:27 IST 2025","Sun Nov 09 23:13:50 IST 2025","22350","","Forget Password Functionality Testing","","TC_Forget_11 - Validate successful password reset with a valid New Password","","TC_Forget_11 - Validate successful password reset with a valid New Password","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:14:45 IST 2025","Sun Nov 09 23:14:59 IST 2025","13831","","Login Functionality Testing","","TC_Basic_06 - Verify error message when username is entered but password field is left blank","","TC_Basic_06 - Verify error message when username is entered but password field is left blank","  As a user
+  I want to test various login scenarios
+  So that I can ensure the login functionality works correctly"
+"passed","Sun Nov 09 23:12:21 IST 2025","Sun Nov 09 23:12:37 IST 2025","15796","","Forget Password Functionality Testing","","TC_Forget_07 - Validate Error message if Confirm New Password left blank","","TC_Forget_07 - Validate Error message if Confirm New Password left blank","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"
+"passed","Sun Nov 09 23:10:40 IST 2025","Sun Nov 09 23:10:45 IST 2025","5204","","User Role API Testing","","Get all user roles","","Get all user roles",""
+"passed","Sun Nov 09 23:11:39 IST 2025","Sun Nov 09 23:11:58 IST 2025","19014","","Forget Password Functionality Testing","","TC_Forget_05 - Validate Error message if Current Password left blank","","TC_Forget_05 - Validate Error message if Current Password left blank","  As a user who has forgotten their password
+  I want to be able to reset my password securely
+  So that I can regain access to my account"

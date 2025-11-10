@@ -1,0 +1,10 @@
+# WebM Video Recording Placeholder
+
+Test Name: TCRegistration08__Validate_registration_with_weak_password_that_does_not_meet_strength_requirements_20251110_102930
+Frames Captured: 83
+Frame Rate: 2 FPS
+Duration: 114.573 seconds
+Frames Location: C:\Users\schapre\automation\AutomationFramework_Selenium_Java\test-output\videos\frames_TCRegistration08__Validate_registration_with_weak_password_that_does_not_meet_strength_requirements_20251110_102930
+
+Note: To create actual WebM video, use FFmpeg with the saved frames:
+ffmpeg -framerate 2 -i "C:\Users\schapre\automation\AutomationFramework_Selenium_Java\test-output\videos\frames_TCRegistration08__Validate_registration_with_weak_password_that_does_not_meet_strength_requirements_20251110_102930\frame_%06d.png" -c:v libvpx-vp9 "test-output/videos/TCRegistration08__Validate_registration_with_weak_password_that_does_not_meet_strength_requirements_20251110_102930_actual.webm"

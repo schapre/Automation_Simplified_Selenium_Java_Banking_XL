@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Parallel Execution Suite" parallel="methods" thread-count="6" data-provider-thread-count="3">
+
+    <listeners>
+        <listener class-name="utils.AllureTestNGListener"/>
+    </listeners>
+
+    <!-- Web Tests in Parallel -->
+    <test name="Web Tests - Parallel">
+        <parameter name="configFile" value="config/config.properties"/>
+        <classes>
+            <class name="runners.TestRunner">
+                <methods>
+                    <include name=".*web.*" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- API Tests in Parallel -->
+    <test name="API Tests - Parallel">
+        <parameter name="configFile" value="config/config.properties"/>
+        <classes>
+            <class name="runners.TestRunner">
+                <methods>
+                    <include name=".*api.*" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Cross-Platform Tests -->
+    <test name="Multi-Platform Tests">
+        <parameter name="configFile" value="config/config.properties"/>
+        <classes>
+            <class name="runners.TestRunner"/>
+        </classes>
+    </test>
+
+</suite>

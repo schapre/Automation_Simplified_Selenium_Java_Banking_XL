@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Multi-Platform Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Web Tests(failed)">
+    <parameter name="configFile" value="config_web.properties"/>
+    <classes>
+      <class name="runners.TestRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="tearDown"/>
+          <include name="runScenario"/>
+          <include name="tearDownClass"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- runners.TestRunner -->
+    </classes>
+  </test> <!-- Web Tests(failed) -->
+  <test thread-count="5" name="API Tests(failed)">
+    <parameter name="configFile" value="config_api.properties"/>
+    <classes>
+      <class name="runners.TestRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="tearDown"/>
+          <include name="runScenario"/>
+          <include name="tearDownClass"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- runners.TestRunner -->
+    </classes>
+  </test> <!-- API Tests(failed) -->
+</suite> <!-- Failed suite [Multi-Platform Suite] -->

@@ -1,0 +1,12 @@
+Test: runScenario
+Error: Expected condition failed: waiting for element to be clickable: By.xpath: //button[text()='Sign in'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61770}, goog:processID: 39676, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61770/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e6a3642f533dc06e561c35f8b3076af3
+Stack Trace: org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+pages.UI_LoginTestPage.clickLoginButton(UI_LoginTestPage.java:56)
+stepdefinitions.web.UI_LoginFunctionality_StepDefinition.i_click_the_login_button(UI_LoginFunctionality_StepDefinition.java:141)
+✽.I click the login button(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_Login_Functionality.feature:52)

@@ -1,0 +1,10 @@
+# WebM Video Recording Placeholder
+
+Test Name: TCForget09__Validate_error_message_if_New_and_Confirm_Password_do_not_meet_password_criteria_20251110_101619
+Frames Captured: 67
+Frame Rate: 2 FPS
+Duration: 45.163 seconds
+Frames Location: C:\Users\schapre\automation\AutomationFramework_Selenium_Java\test-output\videos\frames_TCForget09__Validate_error_message_if_New_and_Confirm_Password_do_not_meet_password_criteria_20251110_101619
+
+Note: To create actual WebM video, use FFmpeg with the saved frames:
+ffmpeg -framerate 2 -i "C:\Users\schapre\automation\AutomationFramework_Selenium_Java\test-output\videos\frames_TCForget09__Validate_error_message_if_New_and_Confirm_Password_do_not_meet_password_criteria_20251110_101619\frame_%06d.png" -c:v libvpx-vp9 "test-output/videos/TCForget09__Validate_error_message_if_New_and_Confirm_Password_do_not_meet_password_criteria_20251110_101619_actual.webm"

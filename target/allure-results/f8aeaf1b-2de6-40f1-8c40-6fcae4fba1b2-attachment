@@ -1,0 +1,41 @@
+Test: runScenario
+Error: no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(text(), 'Verify Code') or contains(text(), 'Verify')]"}
+  (Session info: chrome=142.0.7444.60)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8f632767f9a5c03807427638f333706e, findElement {using=xpath, value=//button[contains(text(), 'Verify Code') or contains(text(), 'Verify')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\schapre\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65480}, goog:processID: 14100, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65480/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8f632767f9a5c03807427638f333706e
+Stack Trace: java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:364)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:358)
+org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+com.sun.proxy.$Proxy35.getWrappedElement(Unknown Source)
+org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:51)
+java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:470)
+pages.UI_ForgetPasswordTestPage.clickElement(UI_ForgetPasswordTestPage.java:305)
+pages.UI_ForgetPasswordTestPage.clickVerifyCodeButton(UI_ForgetPasswordTestPage.java:147)
+stepdefinitions.web.UI_ForgetPasswordFunctionality_StepDefinition.i_click_on_verify_code_button(UI_ForgetPasswordFunctionality_StepDefinition.java:72)
+✽.I click on 'Verify Code' button(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_ForgetPassword_Functionality.feature:91)

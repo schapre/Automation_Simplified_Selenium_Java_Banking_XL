@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "plugins": [
+    "behaviors",
+    "packages",
+    "screen-diff",
+    "xctest",
+    "jira",
+    "xray"
+  ],
+  "exclude": [
+    "junit4",
+    "rspec"
+  ],
+  "reportDirectory": "allure-report",
+  "testRunName": "Automation Test Run - ${date}",
+  "historyTrend": true,
+  "executor": {
+    "name": "Jenkins",
+    "type": "jenkins",
+    "url": "${BUILD_URL}",
+    "buildOrderUrl": "${BUILD_URL}",
+    "buildName": "${BUILD_DISPLAY_NAME}",
+    "buildUrl": "${BUILD_URL}",
+    "reportUrl": "${BUILD_URL}allure",
+    "reportName": "Allure Report"
+  },
+  "mail": {
+    "host": "smtp.company.com",
+    "port": 465,
+    "username": "reports@company.com",
+    "password": "${MAIL_PASSWORD}",
+    "enableSSL": true,
+    "subject": "Test Report - ${date}",
+    "from": "reports@company.com",
+    "replyTo": "reports@company.com"
+  }
+}
