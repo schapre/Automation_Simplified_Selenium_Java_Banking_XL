@@ -1,0 +1,7 @@
+Test: runScenario
+Error: Invalid credentials error message is not displayed expected [true] but found [false]
+Stack Trace: org.testng.Assert.fail(Assert.java:111)
+org.testng.Assert.failNotEquals(Assert.java:1578)
+org.testng.Assert.assertTrue(Assert.java:57)
+stepdefinitions.web.UI_LoginFunctionality_StepDefinition.error_message_should_be_displayed(UI_LoginFunctionality_StepDefinition.java:72)
+✽.error message "Invalid email id and password" should be displayed(file:///C:/Users/schapre/automation/AutoSimplified_Selenium_Java_RestAssured-main/src/test/resources/features/web/UI_Login_Functionality.feature:21)

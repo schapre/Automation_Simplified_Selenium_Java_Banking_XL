@@ -1,0 +1,10 @@
+# WebM Video Recording Placeholder
+
+Test Name: TCForget06__Validate_Error_message_if_New_Password_left_blank_20251111_154201
+Frames Captured: 34
+Frame Rate: 2 FPS
+Duration: 20.903 seconds
+Frames Location: C:\Users\schapre\automation\AutoSimplified_Selenium_Java_RestAssured-main\test-output\videos\frames_TCForget06__Validate_Error_message_if_New_Password_left_blank_20251111_154201
+
+Note: To create actual WebM video, use FFmpeg with the saved frames:
+ffmpeg -framerate 2 -i "C:\Users\schapre\automation\AutoSimplified_Selenium_Java_RestAssured-main\test-output\videos\frames_TCForget06__Validate_Error_message_if_New_Password_left_blank_20251111_154201\frame_%06d.png" -c:v libvpx-vp9 "test-output/videos/TCForget06__Validate_Error_message_if_New_Password_left_blank_20251111_154201_actual.webm"

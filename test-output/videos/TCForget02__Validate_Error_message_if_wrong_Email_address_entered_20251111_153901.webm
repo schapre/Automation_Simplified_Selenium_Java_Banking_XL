@@ -1,0 +1,10 @@
+# WebM Video Recording Placeholder
+
+Test Name: TCForget02__Validate_Error_message_if_wrong_Email_address_entered_20251111_153901
+Frames Captured: 1
+Frame Rate: 2 FPS
+Duration: 0.381 seconds
+Frames Location: C:\Users\schapre\automation\AutoSimplified_Selenium_Java_RestAssured-main\test-output\videos\frames_TCForget02__Validate_Error_message_if_wrong_Email_address_entered_20251111_153901
+
+Note: To create actual WebM video, use FFmpeg with the saved frames:
+ffmpeg -framerate 2 -i "C:\Users\schapre\automation\AutoSimplified_Selenium_Java_RestAssured-main\test-output\videos\frames_TCForget02__Validate_Error_message_if_wrong_Email_address_entered_20251111_153901\frame_%06d.png" -c:v libvpx-vp9 "test-output/videos/TCForget02__Validate_Error_message_if_wrong_Email_address_entered_20251111_153901_actual.webm"

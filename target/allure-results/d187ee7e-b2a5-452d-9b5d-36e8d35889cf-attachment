@@ -1,0 +1,7 @@
+Test: runScenario
+Error: Security code field should be displayed expected [true] but found [false]
+Stack Trace: org.testng.Assert.fail(Assert.java:111)
+org.testng.Assert.failNotEquals(Assert.java:1578)
+org.testng.Assert.assertTrue(Assert.java:57)
+stepdefinitions.web.UI_ForgetPasswordFunctionality_StepDefinition.i_enter_correct_secret_code(UI_ForgetPasswordFunctionality_StepDefinition.java:65)
+✽.I enter correct secret code "BANK1234"(file:///C:/Users/schapre/automation/AutoSimplified_Selenium_Java_RestAssured-main/src/test/resources/features/web/UI_ForgetPassword_Functionality.feature:66)

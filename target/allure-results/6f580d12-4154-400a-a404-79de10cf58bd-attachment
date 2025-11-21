@@ -1,0 +1,7 @@
+Test: runScenario
+Error: Expected error message 'Email not found in our records' (or equivalent like 'All fields are required') should be displayed but was not found expected [true] but found [false]
+Stack Trace: org.testng.Assert.fail(Assert.java:111)
+org.testng.Assert.failNotEquals(Assert.java:1578)
+org.testng.Assert.assertTrue(Assert.java:57)
+stepdefinitions.web.UI_ForgetPasswordFunctionality_StepDefinition.i_should_see_error_message(UI_ForgetPasswordFunctionality_StepDefinition.java:188)
+✽.I should see error message 'Email not found in our records'(file:///C:/Users/schapre/automation/AutoSimplified_Selenium_Java_RestAssured-main/src/test/resources/features/web/UI_ForgetPassword_Functionality.feature:20)

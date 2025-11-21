@@ -1,7 +1,0 @@
-Test: runScenario
-Error: Password strength indicators are not visible expected [true] but found [false]
-Stack Trace: org.testng.Assert.fail(Assert.java:111)
-org.testng.Assert.failNotEquals(Assert.java:1578)
-org.testng.Assert.assertTrue(Assert.java:57)
-stepdefinitions.web.UI_RegistrationFunctionality_StepDefinition.password_strength_indicators_should_be_visible(UI_RegistrationFunctionality_StepDefinition.java:208)
-✽.Password strength indicators should be visible(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_Registration_Functionality.feature:73)

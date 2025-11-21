@@ -1,0 +1,22 @@
+Test: runScenario
+Error: Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
+Host info: host: 'LIN-5CG0148KZ5', ip: '192.168.29.229'
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], extensions: []}}]}]
+Stack Trace: org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:140)
+org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:96)
+org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
+org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:163)
+org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:241)
+org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:168)
+org.openqa.selenium.chromium.ChromiumDriver.<init>(ChromiumDriver.java:108)
+org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
+org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
+org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:52)
+utils.DriverFactory.initWebDriver(DriverFactory.java:24)
+hooks.Hooks.setUp(Hooks.java:54)

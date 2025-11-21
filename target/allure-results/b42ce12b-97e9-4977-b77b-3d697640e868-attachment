@@ -1,7 +1,0 @@
-Test: runScenario
-Error: Password field is not displayed expected [true] but found [false]
-Stack Trace: org.testng.Assert.fail(Assert.java:111)
-org.testng.Assert.failNotEquals(Assert.java:1578)
-org.testng.Assert.assertTrue(Assert.java:57)
-stepdefinitions.web.UI_RegistrationFunctionality_StepDefinition.user_is_on_the_registration_page(UI_RegistrationFunctionality_StepDefinition.java:24)
-✽.User is on the registration page(file:///C:/Users/schapre/automation/AutomationFramework_Selenium_Java/src/test/resources/features/web/UI_Registration_Functionality.feature:20)

@@ -1,0 +1,16 @@
+pages\UI_RegistrationTestPage.class
+pages\UI_LoginPage.class
+utils\ExcelReader.class
+utils\DriverFactory.class
+pages\UI_LoginTestPage.class
+pages\UI_ClaimPage.class
+utils\ConfigReader.class
+pages\UI_DashboardPage.class
+utils\DatabaseFactory.class
+utils\ApiClientFactory.class
+utils\DatabaseUtils.class
+utils\AllureManager.class
+pages\UI_ForgetPasswordTestPage.class
+pages\UI_AdminPage.class
+pages\UI_PIMPage.class
+utils\ConfigLoader.class
