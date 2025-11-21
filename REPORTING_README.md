@@ -131,12 +131,28 @@ Both reporting systems automatically capture screenshots:
 
 - Automatically captured when tests fail
 - Attached to both Spark and Allure reports
-- Stored in `screenshot/` directory
+- Saved to dedicated folder: `test-output/screenshots/`
+- Timestamped filenames for easy identification
+
+### Screenshot Storage Locations
+
+1. **Standalone Screenshots**: `test-output/screenshots/`
+   - Individual PNG files with descriptive names
+   - Timestamped for uniqueness
+   - Easy access for manual review
+
+2. **Allure Attachments**: `target/allure-results/`
+   - Integrated with test reports
+   - Viewable in Allure report interface
+
+3. **Video Frames**: `test-output/videos/`
+   - Screenshot frames from video recordings
+   - Organized by test name
 
 ### Manual Screenshots
 
 ```java
-// In step definitions
+// In step definitions - automatically saves to screenshots folder
 AllureManager.attachScreenshot(driver, "Custom Screenshot Name");
 ```
 

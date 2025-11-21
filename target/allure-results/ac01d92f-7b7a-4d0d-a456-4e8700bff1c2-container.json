@@ -1,0 +1,1 @@
+{"uuid":"ac01d92f-7b7a-4d0d-a456-4e8700bff1c2","name":"Scenario: TC_Registration_10 - Validate clicking 'Sign in' link successfully navigate user to Login Page","children":["fc5736b7-8573-4430-bc34-e427bf9f7718"],"befores":[],"afters":[],"start":1763717927493,"stop":1763717927502}

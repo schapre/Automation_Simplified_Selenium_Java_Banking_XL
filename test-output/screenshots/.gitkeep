@@ -1,0 +1,2 @@
+# This file ensures the screenshots directory is tracked by Git
+# Actual screenshot files (*.png) may be ignored via .gitignore

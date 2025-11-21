@@ -8,11 +8,17 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Utility class for Allure reporting features
  */
 public class AllureManager {
+
+    private static final String SCREENSHOT_FOLDER = "test-output/screenshots";
 
     /**
      * Take screenshot for Allure report
@@ -27,13 +33,55 @@ public class AllureManager {
 
     /**
      * Take screenshot and attach to Allure report
+     * Also saves screenshot to separate folder
      * 
      * @param driver WebDriver instance
      * @param name   Screenshot name
      */
     public static void attachScreenshot(WebDriver driver, String name) {
         byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+
+        // Attach to Allure report
         Allure.addAttachment(name, new ByteArrayInputStream(screenshot));
+
+        // Save to separate screenshots folder
+        saveScreenshotToFile(screenshot, name);
+    }
+
+    /**
+     * Save screenshot to file system in a separate folder
+     * 
+     * @param screenshot Screenshot as byte array
+     * @param name       Screenshot name
+     */
+    private static void saveScreenshotToFile(byte[] screenshot, String name) {
+        try {
+            // Create screenshots directory if it doesn't exist
+            File screenshotDir = new File(SCREENSHOT_FOLDER);
+            if (!screenshotDir.exists()) {
+                screenshotDir.mkdirs();
+            }
+
+            // Create timestamp for unique filename
+            String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS").format(new Date());
+
+            // Sanitize name for filename
+            String sanitizedName = name.replaceAll("[^a-zA-Z0-9_\\-]", "_");
+
+            // Create screenshot file
+            String fileName = sanitizedName + "_" + timestamp + ".png";
+            File screenshotFile = new File(screenshotDir, fileName);
+
+            // Write screenshot to file
+            try (FileOutputStream fos = new FileOutputStream(screenshotFile)) {
+                fos.write(screenshot);
+            }
+
+            System.out.println("📸 Screenshot saved: " + screenshotFile.getAbsolutePath());
+
+        } catch (Exception e) {
+            System.err.println("❌ Failed to save screenshot to file: " + e.getMessage());
+        }
     }
 
     /**

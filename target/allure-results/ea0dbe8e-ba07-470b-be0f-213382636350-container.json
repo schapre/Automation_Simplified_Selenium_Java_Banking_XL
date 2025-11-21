@@ -1,0 +1,1 @@
+{"uuid":"ea0dbe8e-ba07-470b-be0f-213382636350","name":"Scenario: TC_Basic_04 - Verify login button is enabled and validate error message when fields are empty","children":["5384490c-ecbe-4d4d-b607-f6077bd495d7"],"befores":[],"afters":[],"start":1763717926422,"stop":1763717926455}

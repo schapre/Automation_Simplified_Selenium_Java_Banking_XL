@@ -1,0 +1,1 @@
+{"uuid":"acf44fed-e501-4594-9520-8ad0e84aab97","name":"Scenario: TC_Registration_06 - Validate registration when password and confirm password do not match","children":["a209d263-98e4-498d-853b-758e4a4f1af8"],"befores":[],"afters":[],"start":1763717927715,"stop":1763717927732}

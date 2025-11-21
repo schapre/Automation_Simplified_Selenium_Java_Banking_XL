@@ -1,7 +1,0 @@
-Test: runScenario
-Error: Success message is not displayed expected [true] but found [false]
-Stack Trace: org.testng.Assert.fail(Assert.java:111)
-org.testng.Assert.failNotEquals(Assert.java:1578)
-org.testng.Assert.assertTrue(Assert.java:57)
-stepdefinitions.web.UI_LoginFunctionality_StepDefinition.i_should_see_successful_message(UI_LoginFunctionality_StepDefinition.java:44)
-✽.I should see successful message "Login Successful"(file:///C:/Users/schapre/automation/AutoSimplified_Selenium_Java_RestAssured-main/src/test/resources/features/web/UI_Login_Functionality.feature:14)

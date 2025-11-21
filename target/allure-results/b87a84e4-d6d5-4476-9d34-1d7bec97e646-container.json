@@ -1,0 +1,1 @@
+{"uuid":"b87a84e4-d6d5-4476-9d34-1d7bec97e646","name":"Scenario: TC_Basic_06 - Verify error message when username is entered but password field is left blank","children":["cc769680-930c-43b6-aeb5-459ff881e7c1"],"befores":[],"afters":[],"start":1763717926664,"stop":1763717926680}
