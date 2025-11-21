@@ -47,11 +47,18 @@ public class Hooks {
         }
 
         if (hasUITest) {
-            // Initialize video directory and start recording for UI-based tests
+            // Initialize video directory and start MP4 recording for UI-based tests
             VideoManager.initializeVideoDirectory();
             String testName = scenario.getName().replaceAll("[^a-zA-Z0-9\\s]", "");
-            VideoManager.startRecording(testName);
-            logger.info("🎥 Video recording started for: {}", scenario.getName());
+
+            // Check FFmpeg availability
+            if (!VideoRecorder.isFFmpegAvailable()) {
+                logger.warn("⚠️ FFmpeg not detected. Videos will be saved as frame sequences.");
+                logger.warn("💡 Install FFmpeg to enable automatic MP4 video generation.");
+            }
+
+            VideoRecorder.startRecording(testName);
+            logger.info("🎥 MP4 video recording started for: {}", scenario.getName());
         }
 
         for (String platform : platforms) {

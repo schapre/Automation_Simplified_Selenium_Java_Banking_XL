@@ -78,7 +78,8 @@ public class VideoManager {
             return "No videos directory found";
         }
 
-        File[] videoFiles = videoDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".webm") ||
+        File[] videoFiles = videoDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp4") ||
+                name.toLowerCase().endsWith(".webm") ||
                 name.toLowerCase().endsWith(".avi") ||
                 name.toLowerCase().endsWith(".mov"));
 
@@ -127,7 +128,8 @@ public class VideoManager {
         }
 
         long cutoffTime = System.currentTimeMillis() - (daysToKeep * 24L * 60 * 60 * 1000);
-        File[] videoFiles = videoDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".webm") ||
+        File[] videoFiles = videoDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp4") ||
+                name.toLowerCase().endsWith(".webm") ||
                 name.toLowerCase().endsWith(".avi") ||
                 name.toLowerCase().endsWith(".mov"));
 
@@ -160,7 +162,8 @@ public class VideoManager {
             return new File[0];
         }
 
-        File[] videoFiles = videoDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".webm") ||
+        File[] videoFiles = videoDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp4") ||
+                name.toLowerCase().endsWith(".webm") ||
                 name.toLowerCase().endsWith(".avi") ||
                 name.toLowerCase().endsWith(".mov"));
 

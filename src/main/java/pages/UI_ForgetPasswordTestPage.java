@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.JavascriptExecutor;
+import utils.URLManager;
 import java.time.Duration;
 import java.util.List;
 
@@ -114,12 +115,16 @@ public class UI_ForgetPasswordTestPage {
     // Navigation Methods
     public void navigateToForgetPasswordPage() {
         try {
-            driver.get("https://testerbud.com/forget-password");
+            String url = URLManager.getTesterBudForgetPasswordUrl();
+            URLManager.logNavigation("Forget Password", url);
+            driver.get(url);
             wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//input[@placeholder='Enter your registered email' or contains(@name, 'email')]")));
         } catch (Exception e) {
             // Fallback: Navigate via login page
-            driver.get("https://testerbud.com/practice-login-form");
+            String loginUrl = URLManager.getTesterBudLoginUrl();
+            URLManager.logNavigation("Login (Fallback for Forget Password)", loginUrl);
+            driver.get(loginUrl);
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'Forgot password')]")));
             clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Forgot password')]")));
         }

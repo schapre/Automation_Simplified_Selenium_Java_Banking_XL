@@ -3,26 +3,53 @@ package utils;
 /**
  * Video Recording facade class
  * Provides a simple interface for video recording operations
- * Now uses WebM video recorder for actual video file generation
+ * Now uses MP4 video recorder for actual video file generation with FFmpeg
  */
 public class VideoRecorder {
 
     /**
-     * Start video recording
+     * Start video recording in MP4 format
      * 
      * @param testName Name of the test being recorded
      */
     public static void startRecording(String testName) {
-        VideoRecorderWebM.startRecording(testName);
+        VideoRecorderMP4.startRecording(testName);
     }
 
     /**
-     * Stop video recording
+     * Stop video recording and generate MP4 file
      * 
      * @return Path to the recorded video file
      */
     public static String stopRecording() {
-        return VideoRecorderWebM.stopRecording();
+        return VideoRecorderMP4.stopRecording();
+    }
+
+    /**
+     * Check if FFmpeg is available for video generation
+     * 
+     * @return true if FFmpeg is available
+     */
+    public static boolean isFFmpegAvailable() {
+        return VideoRecorderMP4.isFFmpegAvailable();
+    }
+
+    /**
+     * Set custom FFmpeg path
+     * 
+     * @param path Path to FFmpeg executable
+     */
+    public static void setFFmpegPath(String path) {
+        VideoRecorderMP4.setFFmpegPath(path);
+    }
+
+    /**
+     * Set frame rate for video recording
+     * 
+     * @param fps Frames per second (1-30)
+     */
+    public static void setFrameRate(int fps) {
+        VideoRecorderMP4.setFrameRate(fps);
     }
 
     /**

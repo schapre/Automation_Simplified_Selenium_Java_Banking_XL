@@ -15,6 +15,7 @@ import java.util.Map;
 import utils.DriverFactory;
 import utils.ExcelUtils;
 import utils.AllureManager;
+import utils.URLManager;
 import io.qameta.allure.Step;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
@@ -172,7 +173,7 @@ public class ExcelDataDrivenTest {
 
     @Step("Navigate to login page")
     private void navigateToLoginPage() {
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.get(URLManager.getOrangeHrmLoginUrl());
         wait.until(ExpectedConditions.presenceOfElementLocated(By.name("username")));
         AllureManager.addStep("Login page loaded successfully");
     }

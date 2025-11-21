@@ -1,8 +1,0 @@
-? Test Recording Session
-========================
-
-Test Name: TCForget01__Validate_Error_message_if_Email_address_left_blank_20251111_153813
-Start Time: Tue Nov 11 15:38:13 IST 2025
-Status: Recording Started
-
-Note: Frame generation disabled - recording indicator only

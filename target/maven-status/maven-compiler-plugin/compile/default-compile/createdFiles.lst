@@ -2,6 +2,7 @@ utils\ExcelUtils.class
 pages\UI_LoginPage.class
 utils\TestContext.class
 pages\UI_LoginTestPage.class
+utils\VideoRecorderMP4.class
 utils\VideoRecorder.class
 utils\ConfigReader.class
 pages\UI_DashboardPage.class
@@ -14,6 +15,7 @@ utils\VideoManager.class
 pages\UI_AdminPage.class
 pages\UI_PIMPage.class
 utils\ExcelReader$1.class
+utils\URLManager.class
 pages\UI_RegistrationTestPage.class
 utils\PlatformSelector$PlatformType.class
 utils\ExcelReader.class

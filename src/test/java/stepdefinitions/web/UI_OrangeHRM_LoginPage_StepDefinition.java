@@ -7,6 +7,7 @@ import pages.UI_LoginPage;
 import pages.UI_DashboardPage;
 import utils.DriverFactory;
 import utils.AllureManager;
+import utils.URLManager;
 
 public class UI_OrangeHRM_LoginPage_StepDefinition {
 
@@ -20,7 +21,7 @@ public class UI_OrangeHRM_LoginPage_StepDefinition {
     @Description("Navigate to the OrangeHRM application homepage")
     public void the_application_is_launched() {
         AllureManager.addStep("Launching OrangeHRM application");
-        driver.get("https://opensource-demo.orangehrmlive.com/");
+        driver.get(URLManager.getOrangeHrmBaseUrl());
         AllureManager.attachScreenshot(driver, "Application Launched");
     }
 
