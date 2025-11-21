@@ -5,11 +5,14 @@ import com.atlassian.jira.rest.client.api.domain.BasicIssue;
 import com.atlassian.jira.rest.client.api.domain.input.IssueInput;
 import com.atlassian.jira.rest.client.api.domain.input.IssueInputBuilder;
 import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.concurrent.ExecutionException;
 
 public class JiraUtil {
+    private static final Logger logger = LoggerFactory.getLogger(JiraUtil.class);
     private final JiraRestClient restClient;
     private final String projectKey;
     private final boolean enabled;
@@ -88,7 +91,7 @@ public class JiraUtil {
             BasicIssue issue = restClient.getIssueClient().createIssue(newIssue).get();
             return issue.getKey();
         } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
+            logger.error("Failed to create Jira issue for project: {}", projectKey, e);
             return null;
         }
     }

@@ -12,6 +12,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.List;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Simple Video Recording utility class using Java AWT Robot
@@ -20,6 +22,7 @@ import javax.imageio.ImageIO;
  * later
  */
 public class VideoRecorderSimple {
+    private static final Logger logger = LoggerFactory.getLogger(VideoRecorderSimple.class);
 
     private static boolean isRecording = false;
     private static String videoFolderPath = "test-output/videos/";
@@ -84,8 +87,8 @@ public class VideoRecorderSimple {
             System.out.println("✅ Video recording started: " + currentVideoName);
 
         } catch (Exception e) {
+            logger.error("Failed to start video recording: {}", currentVideoName, e);
             System.err.println("❌ Failed to start video recording: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -141,8 +144,8 @@ public class VideoRecorderSimple {
             return videoFolderName;
 
         } catch (Exception e) {
+            logger.error("Failed to stop video recording: {}", currentVideoName, e);
             System.err.println("❌ Failed to stop video recording: " + e.getMessage());
-            e.printStackTrace();
             return null;
         }
     }

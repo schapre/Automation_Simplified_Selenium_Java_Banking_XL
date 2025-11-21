@@ -4,6 +4,8 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,6 +19,7 @@ import java.util.Map;
  * Provides data-driven testing support with Excel integration
  */
 public class ExcelUtils {
+    private static final Logger logger = LoggerFactory.getLogger(ExcelUtils.class);
 
     private static ExcelReader excelReader = new ExcelReader();
 
@@ -49,8 +52,8 @@ public class ExcelUtils {
             return dataProvider;
 
         } catch (IOException e) {
+            logger.error("Failed to read Excel file: {}", filePath, e);
             System.err.println("❌ Failed to read Excel file: " + filePath);
-            e.printStackTrace();
             return new Object[0][0];
         }
     }
@@ -128,8 +131,8 @@ public class ExcelUtils {
             return new HashMap<>();
 
         } catch (IOException e) {
+            logger.error("Failed to read test case data: {}", testCaseName, e);
             System.err.println("❌ Failed to read test case data: " + testCaseName);
-            e.printStackTrace();
             return new HashMap<>();
         }
     }
@@ -196,8 +199,8 @@ public class ExcelUtils {
             System.out.println("✅ Data written successfully to: " + filePath);
 
         } catch (IOException e) {
+            logger.error("Failed to write data to Excel: {}", filePath, e);
             System.err.println("❌ Failed to write data to Excel: " + filePath);
-            e.printStackTrace();
         } finally {
             try {
                 if (workbook != null)
@@ -207,7 +210,7 @@ public class ExcelUtils {
                 if (fis != null)
                     fis.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("Failed to close Excel file resources", e);
             }
         }
     }
@@ -243,8 +246,8 @@ public class ExcelUtils {
             }
 
         } catch (IOException e) {
+            logger.error("Failed to update test result for test case: {}", testCaseName, e);
             System.err.println("❌ Failed to update test result: " + testCaseName);
-            e.printStackTrace();
         }
     }
 
@@ -269,8 +272,8 @@ public class ExcelUtils {
             }
 
         } catch (IOException e) {
+            logger.error("Failed to get column data: {}", columnName, e);
             System.err.println("❌ Failed to get column data: " + columnName);
-            e.printStackTrace();
         }
 
         return columnData;
@@ -393,8 +396,8 @@ public class ExcelUtils {
             System.out.println("✅ Excel file created successfully: " + filePath);
 
         } catch (IOException e) {
+            logger.error("Failed to create Excel file: {}", filePath, e);
             System.err.println("❌ Failed to create Excel file: " + filePath);
-            e.printStackTrace();
         } finally {
             try {
                 if (workbook != null)
@@ -402,7 +405,7 @@ public class ExcelUtils {
                 if (fos != null)
                     fos.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("Failed to close Excel file resources in createExcelFile", e);
             }
         }
     }

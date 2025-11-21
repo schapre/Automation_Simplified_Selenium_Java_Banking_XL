@@ -13,23 +13,29 @@ import utils.ConfigReader;
 import utils.AllureManager;
 import utils.VideoRecorder;
 import utils.VideoManager;
+import utils.MessageFormatter;
 import io.qameta.allure.Allure;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Hooks {
+    private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
     WebDriver webDriver;
     AppiumDriver mobileDriver;
     RequestSpecification apiClient;
 
     @Before
     public void setUp(Scenario scenario) {
+        logger.debug(MessageFormatter.getMessage("test.scenario.setup", scenario.getName()));
         RestAssured.useRelaxedHTTPSValidation();
-        System.out.println("✅ SSL validation relaxed for RestAssured.");
+        logger.info(MessageFormatter.getMessage("auth.ssl.relaxed"));
 
         // Load config
         ConfigReader.loadProperties("src/test/resources/config/config.properties");
 
         String platformConfig = ConfigReader.getProperty("platform");
         String[] platforms = platformConfig.split(",");
+        logger.debug(MessageFormatter.getMessage("test.platforms.detected", String.join(", ", platforms)));
 
         // Start video recording for UI tests
         boolean hasUITest = false;
@@ -45,7 +51,7 @@ public class Hooks {
             VideoManager.initializeVideoDirectory();
             String testName = scenario.getName().replaceAll("[^a-zA-Z0-9\\s]", "");
             VideoManager.startRecording(testName);
-            System.out.println("🎥 Video recording started for: " + scenario.getName());
+            logger.info("🎥 Video recording started for: {}", scenario.getName());
         }
 
         for (String platform : platforms) {
@@ -83,15 +89,16 @@ public class Hooks {
         // Stop video recording and attach to report
         if (hasUITest && VideoRecorder.isRecording()) {
             String videoPath = VideoManager.stopRecording(true);
-            System.out.println("🎥 Video recording stopped for: " + scenario.getName());
+            logger.info("🎥 Video recording stopped for: {}", scenario.getName());
 
             if (videoPath != null) {
-                System.out.println("📹 Video saved at: " + videoPath);
+                logger.info("📹 Video saved at: {}", videoPath);
             }
         }
 
         // Capture screenshot for failed scenarios
         if (scenario.isFailed()) {
+            logger.warn(MessageFormatter.getMessage("test.scenario.failed", scenario.getName()));
             for (String platform : platforms) {
                 switch (platform.trim().toUpperCase()) {
                     case "WEB":
@@ -112,6 +119,8 @@ public class Hooks {
             AllureManager.attachText("Failure Info",
                     "Scenario: " + scenario.getName() + " failed at " + java.time.LocalDateTime.now());
             Allure.step("Test failed: " + scenario.getName());
+        } else {
+            logger.debug(MessageFormatter.getMessage("test.scenario.passed", scenario.getName()));
         }
 
         for (String platform : platforms) {

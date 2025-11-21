@@ -1,9 +1,13 @@
 package utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Demo class to test the new WebM video recording functionality
  */
 public class VideoRecordingDemo {
+    private static final Logger logger = LoggerFactory.getLogger(VideoRecordingDemo.class);
 
     public static void main(String[] args) {
         try {
@@ -41,8 +45,8 @@ public class VideoRecordingDemo {
             System.out.println("3. Install FFmpeg to convert frames to actual video");
 
         } catch (Exception e) {
+            logger.error("Demo video recording failed", e);
             System.err.println("❌ Demo failed: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }

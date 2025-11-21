@@ -4,7 +4,10 @@ import io.cucumber.java.en.*;
 import io.qameta.allure.Step;
 import utils.DatabaseUtils;
 import utils.AllureManager;
+import utils.MessageFormatter;
 import org.testng.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -13,6 +16,7 @@ import java.util.*;
  * Provides common database testing operations
  */
 public class DatabaseSteps {
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseSteps.class);
 
     private List<Map<String, Object>> queryResults;
     private int recordsAffected;
@@ -22,15 +26,17 @@ public class DatabaseSteps {
     @Step("Verify database connection is available")
     public void iHaveADatabaseConnection() {
         // Connection is already established in Hooks
-        System.out.println("🗄️ Database connection verified");
+        logger.debug(MessageFormatter.getDatabaseMessage("connection.verifying"));
+        logger.info(MessageFormatter.getDatabaseMessage("connection.verified"));
         AllureManager.addStep("Database connection verified");
     }
 
     @When("I execute the query {string}")
     @Step("Execute database query: {query}")
     public void iExecuteTheQuery(String query) {
+        logger.debug(MessageFormatter.getDatabaseMessage("query.executing", query));
         queryResults = DatabaseUtils.executeSelectQuery(query);
-        System.out.println("📊 Query executed, found " + queryResults.size() + " results");
+        logger.info(MessageFormatter.getDatabaseMessage("query.executed", queryResults.size()));
         AllureManager.addStep("Query executed with " + queryResults.size() + " results");
     }
 
@@ -39,8 +45,9 @@ public class DatabaseSteps {
     public void iExecuteTheQueryWithParameters(String query, io.cucumber.datatable.DataTable dataTable) {
         List<String> parameters = dataTable.asList();
         Object[] params = parameters.toArray();
+        logger.debug(MessageFormatter.getDatabaseMessage("query.parameterized.executing", params.length));
         queryResults = DatabaseUtils.executeSelectQuery(query, params);
-        System.out.println("📊 Parameterized query executed, found " + queryResults.size() + " results");
+        logger.info(MessageFormatter.getDatabaseMessage("query.parameterized.executed", queryResults.size()));
         AllureManager.addStep("Parameterized query executed with " + queryResults.size() + " results");
     }
 
@@ -67,8 +74,9 @@ public class DatabaseSteps {
             }
         }
 
+        logger.debug(MessageFormatter.getDatabaseMessage("insert.executing", tableName));
         recordsAffected = DatabaseUtils.insertData(tableName, data);
-        System.out.println("➕ Inserted " + recordsAffected + " record(s) into " + tableName);
+        logger.info(MessageFormatter.getDatabaseMessage("insert.executed", recordsAffected, tableName));
         AllureManager.addStep("Inserted " + recordsAffected + " record(s) into " + tableName);
     }
 
@@ -112,7 +120,7 @@ public class DatabaseSteps {
     @Step("Count all records in table: {tableName}")
     public void iCountRecordsInTable(String tableName) {
         recordsAffected = DatabaseUtils.getRecordCount(tableName, null);
-        System.out.println("📊 Total records in " + tableName + ": " + recordsAffected);
+        logger.info("📊 Total records in {}", tableName + ": " + recordsAffected);
         AllureManager.addStep("Total records: " + recordsAffected);
     }
 
@@ -120,7 +128,7 @@ public class DatabaseSteps {
     @Step("Count filtered records in table: {tableName}")
     public void iCountRecordsInTableWhere(String tableName, String whereClause) {
         recordsAffected = DatabaseUtils.getRecordCount(tableName, whereClause);
-        System.out.println("📊 Filtered records in " + tableName + ": " + recordsAffected);
+        logger.info("📊 Filtered records in {}", tableName + ": " + recordsAffected);
         AllureManager.addStep("Filtered records: " + recordsAffected);
     }
 
@@ -128,7 +136,7 @@ public class DatabaseSteps {
     @Step("Truncate table: {tableName}")
     public void iTruncateTable(String tableName) {
         DatabaseUtils.truncateTable(tableName);
-        System.out.println("🧹 Table " + tableName + " truncated");
+        logger.info("🧹 Table {}", tableName + " truncated");
         AllureManager.addStep("Table truncated: " + tableName);
     }
 
@@ -136,7 +144,7 @@ public class DatabaseSteps {
     @Step("Verify result count: {expectedCount}")
     public void iShouldGetResults(int expectedCount) {
         int actualCount = queryResults != null ? queryResults.size() : 0;
-        System.out.println("✅ Expected: " + expectedCount + ", Actual: " + actualCount);
+        logger.info("✅ Expected: {}", expectedCount + ", Actual: " + actualCount);
         AllureManager.addStep("Result count verification - Expected: " + expectedCount + ", Actual: " + actualCount);
         Assert.assertEquals(actualCount, expectedCount, "Query result count mismatch");
     }
@@ -175,14 +183,14 @@ public class DatabaseSteps {
             Assert.assertTrue(rowFound, "Expected row not found in results: " + expectedRow);
         }
 
-        System.out.println("✅ All expected data found in query results");
+        logger.info("✅ All expected data found in query results");
         AllureManager.addStep("All expected data verified in query results");
     }
 
     @Then("{int} records should be affected")
     @Step("Verify affected record count: {expectedCount}")
     public void recordsShouldBeAffected(int expectedCount) {
-        System.out.println("✅ Expected: " + expectedCount + ", Actual: " + recordsAffected);
+        logger.info("✅ Expected: {}", expectedCount + ", Actual: " + recordsAffected);
         AllureManager
                 .addStep("Affected records verification - Expected: " + expectedCount + ", Actual: " + recordsAffected);
         Assert.assertEquals(recordsAffected, expectedCount, "Affected records count mismatch");
@@ -191,7 +199,7 @@ public class DatabaseSteps {
     @Then("the record should exist")
     @Step("Verify record exists")
     public void theRecordShouldExist() {
-        System.out.println("✅ Record existence verified: " + operationResult);
+        logger.info("✅ Record existence verified: {}", operationResult);
         AllureManager.addStep("Record existence verified: " + operationResult);
         Assert.assertTrue(operationResult, "Expected record to exist but it doesn't");
     }
@@ -199,7 +207,7 @@ public class DatabaseSteps {
     @Then("the record should not exist")
     @Step("Verify record does not exist")
     public void theRecordShouldNotExist() {
-        System.out.println("✅ Record non-existence verified: " + !operationResult);
+        logger.info("✅ Record non-existence verified: {}", !operationResult);
         AllureManager.addStep("Record non-existence verified: " + !operationResult);
         Assert.assertFalse(operationResult, "Expected record to not exist but it does");
     }
@@ -207,7 +215,7 @@ public class DatabaseSteps {
     @Then("I should get count {int}")
     @Step("Verify record count: {expectedCount}")
     public void iShouldGetCount(int expectedCount) {
-        System.out.println("✅ Expected count: " + expectedCount + ", Actual count: " + recordsAffected);
+        logger.info("✅ Expected count: {}", expectedCount + ", Actual count: " + recordsAffected);
         AllureManager.addStep("Count verification - Expected: " + expectedCount + ", Actual: " + recordsAffected);
         Assert.assertEquals(recordsAffected, expectedCount, "Record count mismatch");
     }
@@ -249,7 +257,7 @@ public class DatabaseSteps {
             DatabaseUtils.printResults(queryResults);
             AllureManager.addStep("Query results printed to console");
         } else {
-            System.out.println("📋 No query results available to print");
+            logger.info("📋 No query results available to print");
             AllureManager.addStep("No query results available");
         }
     }

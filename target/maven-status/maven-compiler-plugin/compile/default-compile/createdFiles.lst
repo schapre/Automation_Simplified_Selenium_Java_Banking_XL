@@ -9,6 +9,7 @@ utils\ApiClientFactory.class
 utils\VideoRecorderSimple.class
 utils\VideoRecorderWebM.class
 utils\AllureManager.class
+utils\MessageFormatter.class
 utils\VideoManager.class
 pages\UI_AdminPage.class
 pages\UI_PIMPage.class

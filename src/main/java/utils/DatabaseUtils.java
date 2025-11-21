@@ -183,8 +183,8 @@ public class DatabaseUtils {
                 whereParameters);
 
         if (results.isEmpty()) {
-            System.err.println("❌ No records found for validation");
-            AllureManager.addStep("Validation failed: No records found");
+            System.err.println(MessageFormatter.getDatabaseMessage("validation.no.records"));
+            AllureManager.addStep(MessageFormatter.getDatabaseMessage("validation.failed"));
             return false;
         }
 
@@ -197,17 +197,18 @@ public class DatabaseUtils {
             Object actualValue = actualData.get(column);
 
             if (!Objects.equals(expectedValue, actualValue)) {
-                System.err.println("❌ Validation failed for column '" + column + "': " +
-                        "Expected=" + expectedValue + ", Actual=" + actualValue);
+                System.err.println(MessageFormatter.getDatabaseMessage("validation.column.failed", column,
+                        expectedValue, actualValue));
                 AllureManager.addStep(
-                        "Validation failed for " + column + ": Expected=" + expectedValue + ", Actual=" + actualValue);
+                        MessageFormatter.getDatabaseMessage("validation.allure.failed", column, expectedValue,
+                                actualValue));
                 isValid = false;
             }
         }
 
         if (isValid) {
-            System.out.println("✅ Data validation passed for all columns");
-            AllureManager.addStep("Data validation passed for all columns");
+            System.out.println(MessageFormatter.getDatabaseMessage("validation.column.passed"));
+            AllureManager.addStep(MessageFormatter.getDatabaseMessage("validation.column.passed"));
         }
 
         return isValid;

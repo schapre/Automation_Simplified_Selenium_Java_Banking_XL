@@ -7,8 +7,11 @@ import io.cucumber.java.en.And;
 import org.testng.Assert;
 import pages.UI_ForgetPasswordTestPage;
 import utils.DriverFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UI_ForgetPasswordFunctionality_StepDefinition {
+    private static final Logger logger = LoggerFactory.getLogger(UI_ForgetPasswordFunctionality_StepDefinition.class);
 
     private UI_ForgetPasswordTestPage forgetPasswordPage;
 
@@ -19,9 +22,11 @@ public class UI_ForgetPasswordFunctionality_StepDefinition {
     // Background Step
     @Given("I am on the forget password page")
     public void i_am_on_the_forget_password_page() {
+        logger.debug("Step: Navigating to forget password page");
         forgetPasswordPage.navigateToForgetPasswordPage();
         Assert.assertTrue(forgetPasswordPage.isEmailFieldDisplayed(),
                 "Forget password page should be displayed with email field");
+        logger.info("Navigated to forget password page");
     }
 
     // Email Entry Steps
@@ -37,12 +42,16 @@ public class UI_ForgetPasswordFunctionality_StepDefinition {
 
     @When("I enter valid email address {string}")
     public void i_enter_valid_email_address(String validEmail) {
+        logger.debug("Step: Entering valid email - {}", validEmail);
         forgetPasswordPage.enterEmail(validEmail);
+        logger.info("Entered valid email: {}", validEmail);
     }
 
     @And("I click on 'Continue' button")
     public void i_click_on_continue_button() {
+        logger.debug("Step: Clicking Continue button");
         forgetPasswordPage.clickContinueButton();
+        logger.info("Clicked Continue button");
     }
 
     // Security Code Steps
@@ -211,12 +220,12 @@ public class UI_ForgetPasswordFunctionality_StepDefinition {
         Assert.assertFalse(reqNumber.isEmpty(), "Number requirement should be displayed");
         Assert.assertFalse(reqSpecial.isEmpty(), "Special character requirement should be displayed");
 
-        System.out.println("Password Requirements Status:");
-        System.out.println("8 Characters: " + req8Chars);
-        System.out.println("Uppercase: " + reqUpper);
-        System.out.println("Lowercase: " + reqLower);
-        System.out.println("Number: " + reqNumber);
-        System.out.println("Special Character: " + reqSpecial);
+        logger.info("Password Requirements Status:");
+        logger.info("8 Characters: {}", req8Chars);
+        logger.info("Uppercase: {}", reqUpper);
+        logger.info("Lowercase: {}", reqLower);
+        logger.info("Number: {}", reqNumber);
+        logger.info("Special Character: {}", reqSpecial);
     }
 
     // Validation Steps - Success Messages

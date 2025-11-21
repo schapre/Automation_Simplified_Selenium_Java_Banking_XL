@@ -12,6 +12,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.List;
 import java.util.ArrayList;
 import java.io.FileWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * WebM Video Recording utility class that creates actual video files
@@ -19,6 +21,8 @@ import java.io.FileWriter;
  * Creates actual .webm files or frame sequences for video creation
  */
 public class VideoRecorderWebM {
+
+    private static final Logger logger = LoggerFactory.getLogger(VideoRecorderWebM.class);
 
     private static boolean isRecording = false;
     private static String videoFolderPath = "test-output/videos/";
@@ -39,15 +43,18 @@ public class VideoRecorderWebM {
     public static synchronized void startRecording(String testName) {
         try {
             if (isRecording) {
-                System.out.println("⚠️ Recording already in progress. Stopping previous recording...");
+                logger.warn("⚠️ Recording already in progress. Stopping previous recording...");
                 stopRecording();
             }
 
             // Create videos directory if it doesn't exist
             File videoDir = new File(videoFolderPath);
             if (!videoDir.exists()) {
+                logger.debug("Video directory does not exist, creating: {}", videoFolderPath);
                 videoDir.mkdirs();
-                System.out.println("📁 Created video directory: " + videoFolderPath);
+                logger.info("📁 Created video directory: {}", videoFolderPath);
+            } else {
+                logger.debug("Using existing video directory: {}", videoFolderPath);
             }
 
             // Generate unique video name with timestamp
@@ -70,6 +77,7 @@ public class VideoRecorderWebM {
 
             // Calculate capture interval based on frame rate
             int captureIntervalMs = 1000 / frameRate;
+            logger.debug("Frame capture interval set to {}ms for {} FPS", captureIntervalMs, frameRate);
 
             // Start scheduled screenshot capture
             scheduler = Executors.newScheduledThreadPool(1);
@@ -77,17 +85,16 @@ public class VideoRecorderWebM {
                 try {
                     captureFrame();
                 } catch (Exception e) {
-                    System.err.println("❌ Error capturing frame: " + e.getMessage());
+                    logger.error("❌ Error capturing frame: {}", e.getMessage(), e);
                 }
             }, 0, captureIntervalMs, TimeUnit.MILLISECONDS);
 
             isRecording = true;
-            System.out.println("🎥 WebM video recording started: " + currentVideoName);
-            System.out.println("📊 Frame rate: " + frameRate + " FPS");
+            logger.info("🎥 WebM video recording started: {}", currentVideoName);
+            logger.info("📊 Frame rate: {} FPS", frameRate);
 
         } catch (Exception e) {
-            System.err.println("❌ Failed to start video recording: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("❌ Failed to start video recording: {}", e.getMessage(), e);
         }
     }
 
@@ -121,10 +128,10 @@ public class VideoRecorderWebM {
                 writer.write("Note: Frame generation disabled - recording indicator only\n");
             }
 
-            System.out.println("📝 Recording indicator created: " + indicatorPath);
+            logger.info("📝 Recording indicator created: {}", indicatorPath);
 
         } catch (IOException e) {
-            System.err.println("❌ Failed to create recording indicator: " + e.getMessage());
+            logger.error("❌ Failed to create recording indicator: {}", e.getMessage(), e);
         }
     }
 
@@ -136,7 +143,7 @@ public class VideoRecorderWebM {
     public static synchronized String stopRecording() {
         try {
             if (!isRecording) {
-                System.out.println("⚠️ No recording in progress");
+                logger.warn("⚠️ No recording in progress");
                 return null;
             }
 
@@ -156,21 +163,20 @@ public class VideoRecorderWebM {
 
             long recordingDuration = System.currentTimeMillis() - recordingStartTime;
 
-            System.out.println("✅ Recording stopped");
-            System.out.println("📊 Captured " + frameCount + " frames in " + (recordingDuration / 1000.0) + " seconds");
+            logger.info("✅ Recording stopped");
+            logger.info("📊 Captured {} frames in {} seconds", frameCount, recordingDuration / 1000.0);
 
             // Create the actual video file
             if (capturedFrames != null && !capturedFrames.isEmpty()) {
                 return createWebMVideo();
             } else {
-                System.out.println("⚠️ No frames captured, creating placeholder file");
+                logger.warn("⚠️ No frames captured, creating placeholder file");
                 createRecordingIndicator();
                 return createRecordingSummary(recordingDuration);
             }
 
         } catch (Exception e) {
-            System.err.println("❌ Failed to stop recording: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("❌ Failed to stop recording: {}", e.getMessage(), e);
             return null;
         }
     }
@@ -195,11 +201,11 @@ public class VideoRecorderWebM {
                 writer.write("This file serves as a test execution record.\n");
             }
 
-            System.out.println("📄 Recording summary created: " + summaryPath);
+            logger.info("📄 Recording summary created: {}", summaryPath);
             return summaryPath;
 
         } catch (IOException e) {
-            System.err.println("❌ Failed to create recording summary: " + e.getMessage());
+            logger.error("❌ Failed to create recording summary: {}", e.getMessage(), e);
             return null;
         }
     }
@@ -281,7 +287,7 @@ public class VideoRecorderWebM {
             }
         }
 
-        System.out.println("🧹 Cleaned up " + deletedCount + " old recording files");
+        logger.info("🧹 Cleaned up {} old recording files", deletedCount);
         return deletedCount;
     }
 
@@ -295,10 +301,10 @@ public class VideoRecorderWebM {
         String videoPath = videoFolderPath + currentVideoName + ".webm";
 
         try {
-            System.out.println("🎬 Processing " + capturedFrames.size() + " captured frames...");
+            logger.info("🎬 Processing {} captured frames...", capturedFrames.size());
 
             if (capturedFrames.isEmpty()) {
-                System.out.println("⚠️ No frames to process, creating placeholder");
+                logger.warn("⚠️ No frames to process, creating placeholder");
                 createRecordingIndicator();
                 return createRecordingSummary(System.currentTimeMillis() - recordingStartTime);
             }
@@ -310,7 +316,7 @@ public class VideoRecorderWebM {
             }
 
             // Save frames as individual PNG files
-            System.out.println("💾 Saving " + capturedFrames.size() + " frames to: " + frameDir.getAbsolutePath());
+            logger.info("💾 Saving {} frames to: {}", capturedFrames.size(), frameDir.getAbsolutePath());
 
             for (int i = 0; i < capturedFrames.size(); i++) {
                 BufferedImage frame = capturedFrames.get(i);
@@ -334,10 +340,10 @@ public class VideoRecorderWebM {
                         + "\"\n");
             }
 
-            System.out.println("✅ Video recording completed!");
-            System.out.println("📁 Frames saved to: " + frameDir.getAbsolutePath());
-            System.out.println("📄 WebM placeholder created: " + videoPath);
-            System.out.println("💡 Install FFmpeg to generate actual WebM videos automatically");
+            logger.info("✅ Video recording completed!");
+            logger.info("📁 Frames saved to: {}", frameDir.getAbsolutePath());
+            logger.info("📄 WebM placeholder created: {}", videoPath);
+            logger.info("💡 Install FFmpeg to generate actual WebM videos automatically");
 
             // Clear captured frames from memory to free up space
             capturedFrames.clear();
@@ -345,15 +351,14 @@ public class VideoRecorderWebM {
             return videoPath;
 
         } catch (Exception e) {
-            System.err.println("❌ Failed to create video recording: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("❌ Failed to create video recording: {}", e.getMessage(), e);
 
             // Fallback to creating summary file
             try {
                 createRecordingIndicator();
                 return createRecordingSummary(System.currentTimeMillis() - recordingStartTime);
             } catch (Exception fallbackError) {
-                System.err.println("❌ Fallback summary creation also failed: " + fallbackError.getMessage());
+                logger.error("❌ Fallback summary creation also failed: {}", fallbackError.getMessage(), fallbackError);
                 return null;
             }
         }

@@ -6,6 +6,8 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -18,6 +20,7 @@ import java.util.Date;
  */
 public class AllureManager {
 
+    private static final Logger logger = LoggerFactory.getLogger(AllureManager.class);
     private static final String SCREENSHOT_FOLDER = "test-output/screenshots";
 
     /**
@@ -59,6 +62,7 @@ public class AllureManager {
             // Create screenshots directory if it doesn't exist
             File screenshotDir = new File(SCREENSHOT_FOLDER);
             if (!screenshotDir.exists()) {
+                logger.debug("Creating screenshots directory: {}", SCREENSHOT_FOLDER);
                 screenshotDir.mkdirs();
             }
 
@@ -71,16 +75,17 @@ public class AllureManager {
             // Create screenshot file
             String fileName = sanitizedName + "_" + timestamp + ".png";
             File screenshotFile = new File(screenshotDir, fileName);
+            logger.debug("Saving screenshot as: {}", fileName);
 
             // Write screenshot to file
             try (FileOutputStream fos = new FileOutputStream(screenshotFile)) {
                 fos.write(screenshot);
             }
 
-            System.out.println("📸 Screenshot saved: " + screenshotFile.getAbsolutePath());
+            logger.info("📸 Screenshot saved: {}", screenshotFile.getAbsolutePath());
 
         } catch (Exception e) {
-            System.err.println("❌ Failed to save screenshot to file: " + e.getMessage());
+            logger.error("❌ Failed to save screenshot to file: {}", e.getMessage(), e);
         }
     }
 
@@ -154,8 +159,7 @@ public class AllureManager {
                     // Attach actual video file
                     byte[] videoBytes = java.nio.file.Files.readAllBytes(videoFile.toPath());
                     attachVideoBytes(name, videoBytes);
-                    System.out.println("✅ Video file attached to Allure report: " + name + " (" +
-                            (videoBytes.length / 1024) + " KB)");
+                    logger.info("✅ Video file attached to Allure report: {} ({} KB)", name, videoBytes.length / 1024);
 
                 } else if (videoFile.exists() && videoFile.isDirectory()) {
                     // Legacy: Handle frame folders
@@ -172,17 +176,16 @@ public class AllureManager {
                             // Use the first matching video file
                             byte[] videoBytes = java.nio.file.Files.readAllBytes(videoFiles[0].toPath());
                             attachVideoBytes(name, videoBytes);
-                            System.out.println("✅ Video file attached to Allure report: " + name + " (" +
-                                    (videoBytes.length / 1024) + " KB)");
+                            logger.info("✅ Video file attached to Allure report: {} ({} KB)", name,
+                                    videoBytes.length / 1024);
                         } else {
-                            System.err.println("❌ No video file found for: " + videoPath);
+                            logger.error("❌ No video file found for: {}", videoPath);
                         }
                     }
                 }
 
             } catch (Exception e) {
-                System.err.println("❌ Failed to attach video: " + e.getMessage());
-                e.printStackTrace();
+                logger.error("❌ Failed to attach video: {}", e.getMessage(), e);
             }
         }
     }
@@ -219,11 +222,10 @@ public class AllureManager {
                     attachImageFile(frameFiles[frameFiles.length - 1], name + " - Last Frame");
                 }
 
-                System.out.println("✅ Video frames attached to Allure report: " + name + " ("
-                        + frameFiles.length + " frames)");
+                logger.info("✅ Video frames attached to Allure report: {} ({} frames)", name, frameFiles.length);
             }
         } catch (Exception e) {
-            System.err.println("❌ Failed to attach frame folder: " + e.getMessage());
+            logger.error("❌ Failed to attach frame folder: {}", e.getMessage(), e);
         }
     }
 
@@ -238,7 +240,7 @@ public class AllureManager {
             byte[] imageBytes = java.nio.file.Files.readAllBytes(imageFile.toPath());
             Allure.addAttachment(name, "image/png", new ByteArrayInputStream(imageBytes), ".png");
         } catch (Exception e) {
-            System.err.println("❌ Failed to attach image file: " + e.getMessage());
+            logger.error("❌ Failed to attach image file: {}", e.getMessage(), e);
         }
     }
 
@@ -250,7 +252,7 @@ public class AllureManager {
      */
     @Attachment(value = "{name}", type = "video/webm")
     public static byte[] attachVideoBytes(String name, byte[] videoBytes) {
-        System.out.println("✅ Video bytes attached to Allure report: " + name);
+        logger.info("✅ Video bytes attached to Allure report: {}", name);
         return videoBytes;
     }
 

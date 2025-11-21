@@ -8,6 +8,8 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import utils.DriverFactory;
 import utils.PlatformSelector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @CucumberOptions(features = {
                 "src/test/resources/features/web",
@@ -29,17 +31,18 @@ import utils.PlatformSelector;
                                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" // For Allure Reports
                 }, monochrome = true)
 public class TestRunner extends AbstractTestNGCucumberTests {
+        private static final Logger logger = LoggerFactory.getLogger(TestRunner.class);
 
         @Parameters({ "configFile" })
         @BeforeClass
         public void setUp(String configFile) {
-                System.out.println("Initializing platform using config: " + configFile);
+                logger.info("Initializing platform using config: {}", configFile);
                 PlatformSelector.initializePlatform(configFile);
         }
 
         @AfterClass
         public void tearDown() {
-                System.out.println("Quitting drivers...");
+                logger.info("Quitting drivers...");
                 DriverFactory.quitDriver();
         }
 }
